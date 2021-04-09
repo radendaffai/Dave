@@ -1,26 +1,19 @@
-> library(readxl)
-> UTS3 <- read_excel("D:/UTS3.xlsx")
-> View(UTS3)
-> data3<-UTS3
-> plot(data3)
-> summary(data3)
-     v1SMA          v2SMA               v1SMK           v2SMK      
- Min.   :69.30   Length:20          Min.   :62.70   Min.   :69.20  
- 1st Qu.:73.00   Class :character   1st Qu.:67.45   1st Qu.:73.60  
- Median :74.00   Mode  :character   Median :70.10   Median :75.60  
- Mean   :74.81                      Mean   :69.89   Mean   :75.50  
- 3rd Qu.:77.60                      3rd Qu.:72.22   3rd Qu.:76.65  
- Max.   :82.30                      Max.   :75.90   Max.   :80.20  
-> library(RVAideMemoire)
-*** Package RVAideMemoire v 0.9-79 ***
-Warning message:
-package ‘RVAideMemoire’ was built under R version 4.0.4 
-> library(mvnormtest)
-
-Attaching package: ‘mvnormtest’
-
-The following object is masked from ‘package:RVAideMemoire’:
-
-    mshapiro.test
-
-> mshapiro.test(data3)
+#No 1
+library(matlib)
+lain=c(10.23,3.41,24.67,1.85,2.09,2.46,1.10,2.82,5.88,2.07,3.98,2.15,1.53)
+ac=c(32.29,10.31,0,10.84,19.64,16.93,23.88,7.72,12.07,23.17,17.78,33.05,11.46)
+energi=c(69.96,78.62,80.60,74.76,77.77,84.06,80.55,86.46,68.51,82.73,80.03,86.78,75.85)
+datano1=data.frame(lain,ac,energi)
+datano1
+miuH0=matrix(c(3.56,19.75,75.67),nrow=3,ncol=1)
+n=13
+matriks1=matrix(c(lain,ac,energi),nrow=13,ncol=3)
+xbar <- apply(matriks1,2,mean)
+S <- var(matriks1)
+T2 <- 13*t(xbar-miuH0)%*%inv(S)%*%(xbar-miuH0)
+T2
+xbar-miuH0
+xbar
+S
+qf(0.95,df1=3,df2=10)*12*3/9
+solve(S)
