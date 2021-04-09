@@ -1,19 +1,16 @@
-#No 1
-library(matlib)
-lain=c(10.23,3.41,24.67,1.85,2.09,2.46,1.10,2.82,5.88,2.07,3.98,2.15,1.53)
-ac=c(32.29,10.31,0,10.84,19.64,16.93,23.88,7.72,12.07,23.17,17.78,33.05,11.46)
-energi=c(69.96,78.62,80.60,74.76,77.77,84.06,80.55,86.46,68.51,82.73,80.03,86.78,75.85)
-datano1=data.frame(lain,ac,energi)
-datano1
-miuH0=matrix(c(3.56,19.75,75.67),nrow=3,ncol=1)
-n=13
-matriks1=matrix(c(lain,ac,energi),nrow=13,ncol=3)
-xbar <- apply(matriks1,2,mean)
-S <- var(matriks1)
-T2 <- 13*t(xbar-miuH0)%*%inv(S)%*%(xbar-miuH0)
-T2
-xbar-miuH0
-xbar
-S
-qf(0.95,df1=3,df2=10)*12*3/9
-solve(S)
+ #No 2
+prev1=c(14.11,10.08,13.90,14.99,13.17,9.29,7.39,12.36,11.23,14.00,11.30)
+prev2=c(16.80,14.30,15.40,14.00,11.90,12.30,10.40,12.80,13.60,9.80,12.00)
+unmet1=c(2.86,3.47,3.19,5.36,4.66,3.60,4.92,4.03,3.76,3.10,3.08)
+unmet2=c(4.53,3.8,3.31,6.11,4.66,4.05,5.65,5.27,3.99,3.46,3.2)
+AHH1=c(71.52,70.29,70.65,72.9,72.62,71.16,70.49,71.9,71.88,71.39,74.41)
+AHH2=c(71.67,70.52,70.93,73.12,72.80,71.40,70.76,72.14,72.11,71.56,74.56)
+periode1=matrix(c(prev1,unmet1,AHH1),nrow=11,ncol=3)
+periode2=matrix(c(prev2,unmet2,AHH2),nrow=11,ncol=3)
+periode1
+periode2
+diffperiode=periode1-periode2
+diffperiode
+muH02=c(0,0,0)
+library(DescTools)
+HotellingsT2Test(diffperiode,mu=muH02)
