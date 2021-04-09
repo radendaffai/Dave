@@ -1,0 +1,26 @@
+> library(readxl)
+> UTS3 <- read_excel("D:/UTS3.xlsx")
+> View(UTS3)
+> data3<-UTS3
+> plot(data3)
+> summary(data3)
+     v1SMA          v2SMA               v1SMK           v2SMK      
+ Min.   :69.30   Length:20          Min.   :62.70   Min.   :69.20  
+ 1st Qu.:73.00   Class :character   1st Qu.:67.45   1st Qu.:73.60  
+ Median :74.00   Mode  :character   Median :70.10   Median :75.60  
+ Mean   :74.81                      Mean   :69.89   Mean   :75.50  
+ 3rd Qu.:77.60                      3rd Qu.:72.22   3rd Qu.:76.65  
+ Max.   :82.30                      Max.   :75.90   Max.   :80.20  
+> library(RVAideMemoire)
+*** Package RVAideMemoire v 0.9-79 ***
+Warning message:
+package ‘RVAideMemoire’ was built under R version 4.0.4 
+> library(mvnormtest)
+
+Attaching package: ‘mvnormtest’
+
+The following object is masked from ‘package:RVAideMemoire’:
+
+    mshapiro.test
+
+> mshapiro.test(data3)
